@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
 import "@/styles/globals.css";
 import 'react-toastify/ReactToastify.css';
+import 'react-phone-number-input/style.css';
+import ContextProvider from "@/providers/ContextProvider";
 
 
 export const metadata: Metadata = {
@@ -18,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ToastContainer />
-        {children}
+        <ContextProvider>
+          {children}
+        </ContextProvider>
       </body>
     </html>
   );

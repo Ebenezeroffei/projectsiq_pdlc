@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary: #e51937;
+    --color-secondary: #da1835
+}
+
+.PhoneInputInput {
+    outline: none !important;
+    color: white !important;
+    font-size: 0.875rem !important;
+}
