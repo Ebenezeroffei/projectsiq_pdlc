@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    user-select: none;
+}
+
 @theme {
     --color-primary: #e51937;
     --color-secondary: #da1835
@@ -9,4 +17,32 @@
     outline: none !important;
     color: white !important;
     font-size: 0.875rem !important;
+}
+
+.landing-page-offering-slide {
+    width: 350px !important;
+}
+
+.landing-page-usp-slide {
+    max-width: 400px !important;
+    padding-bottom: 30px;
+}
+
+.landing-page-car-brand-slide {
+    max-width: 250px;
+}
+
+.vehicle-detail-slide {
+    width: 120px !important;
+}
+
+.swiper-pagination-bullet {
+    background-color: red !important;
+    width: 20px !important;
+    height: 5px !important;
+    border-radius: 0 !important;
+}
+
+.swiper-pagination-bullet-active-next {
+    background-color: greenyellow !important;
 }

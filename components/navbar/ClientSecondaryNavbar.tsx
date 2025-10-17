@@ -23,6 +23,14 @@ const ClientSecondaryNavbar = () => {
                 <ClientNavbarMenuItem
                     name="Home"
                 />
+                <ClientNavbarMenuItem
+                    name="About Us"
+                    href="/#about-us"
+                />
+                <ClientNavbarMenuItem
+                    name="Browse Vehicles"
+                    href="/vehicles"
+                />
             </div>
         </section>
     );

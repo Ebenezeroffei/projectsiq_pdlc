@@ -10,8 +10,8 @@ const ClientFooterHeader = () => {
                     DriveIQ
                 </h3>
             </Link>
-            <p className="text-sm font-semibold uppercase text-zinc-400 mt-4">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit atque ea excepturi temporibus quasi non eius veniam est laudantium deleniti pariatur numquam molestiae, provident libero saepe autem sint sit expedita.
+            <p className="text-sm font-semibold uppercase text-zinc-400 mt-4 leading-6">
+                DriveIQ is your trusted source for quality new and used cars. We own every vehicle we sell — no middlemen, just great cars at great prices.
             </p>
         </section>
     )

@@ -1,9 +1,3 @@
-const page = () => {
-  return (
-    <div>
-      Nice Page
-    </div>
-  )
-}
+import LandingPageWrapper from "@/components/client/home/LandingPageWrapper";
 
-export default page
+export default LandingPageWrapper;

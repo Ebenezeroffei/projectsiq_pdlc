@@ -11,7 +11,7 @@ const ClientNavbar = () => {
     useObserveClientScreenSize();
     const { isSmallClientSideScreen } = useAppContext();
     return (
-        <nav className="bg-black p-4 text-white flex justify-between items-center">
+        <nav className="p-4 text-white w-full top-0 left-0 z-20 flex absolute justify-between items-center">
             <ClientNavbarHeader />
             <ClientSecondaryNavbar />
             {
@@ -21,6 +21,14 @@ const ClientNavbar = () => {
                     <ClientNavbarMenuItems>
                         <ClientNavbarMenuItem
                             name="Home"
+                        />
+                        <ClientNavbarMenuItem
+                            name="About Us"
+                            href="/#about-us"
+                        />
+                        <ClientNavbarMenuItem
+                            name="Browse Vehicles"
+                            href="/vehicles"
                         />
                     </ClientNavbarMenuItems>
                 )

@@ -10,9 +10,15 @@ const ClientFooter = () => {
             <section className="gap-8 grid grid-cols-1 md:grid-cols-3">
                 <ClientFooterHeader />
                 <ClientFooterSection name="Navigation">
-                    <ClientFooterItem />
-                    <ClientFooterItem />
-                    <ClientFooterItem />
+                    <ClientFooterItem name="Home" />
+                    <ClientFooterItem
+                        name="About Us"
+                        href="/#about-us"
+                    />
+                    <ClientFooterItem
+                        name="Browse Vehicles"
+                        href="/vehicles"
+                    />
                 </ClientFooterSection>
                 <ClientFooterSection name="Get Special Offers">
                     <ClientFooterGetSpecialOffers />

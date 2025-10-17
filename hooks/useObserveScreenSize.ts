@@ -6,7 +6,7 @@ const useObserveClientScreenSize = () => {
 
 
     const onResizeHandler = () => {
-        if (window.innerWidth < 600) {
+        if (window.innerWidth < 400) {
             setIsSmallClientSideScreen(_ => true);
         }
         else {
