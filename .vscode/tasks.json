@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "Build Next Project"
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "Start Next Project"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "Run Next Project"
+    }
+  ]
+}

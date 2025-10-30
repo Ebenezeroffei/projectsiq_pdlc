@@ -1,4 +1,4 @@
-// import preloader from '@/public/images/preloader.svg';
+import preloader from '@/public/images/preloader.svg';
 // import errorImage from '@/public/images/error.png';
 // import authBG from '@/public/images/auth_bg.jpg';
 import landingPageStarterBG from '@/public/images/landing_page.jpg';
@@ -11,7 +11,7 @@ import car6 from '@/public/images/car6.jpg';
 import landingPageAboutUs from '@/public/images/landing-page-about-us.jpg';
 
 class ImageAssets {
-    // static Preloader = preloader;
+    static Preloader = preloader;
 
     // static ErrorImage = errorImage;
 
