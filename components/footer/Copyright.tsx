@@ -6,7 +6,7 @@ const Copyright = () => {
     const currentYear = new Date().getFullYear()
 
     return (
-        <section className={`border-t-2 ${notoSans.className} mt-8 pt-4 flex flex-col gap-4 sm:flex-row justify-between items-center text-zinc-400 uppercase text-sm font-semibold`}>
+        <section className={`border-t-2 ${notoSans.className} px-4 py-8 flex flex-col gap-4 sm:flex-row justify-between items-center text-zinc-400 uppercase text-sm font-semibold`}>
             <div>
                 Powered By
                 <Link

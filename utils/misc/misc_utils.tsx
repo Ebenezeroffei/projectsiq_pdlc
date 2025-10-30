@@ -75,7 +75,6 @@ class MiscUtils {
         const session = await MiscUtils.getSessionData();
         const headers = new AxiosHeaders();
         headers.set('Authorization', `Bearer ${session?.access}`);
-        headers.set('X-Restaurant-Id', session?.restaurant.id);
         return headers;
     }
 

@@ -23,4 +23,26 @@ const useObserveClientScreenSize = () => {
 
 }
 
-export { useObserveClientScreenSize };
+const useObserveAdminScreenSize = () => {
+    const { setIsSmallAdminSideScreen, setShowAdminSideSecondaryNavbar } = useAppContext();
+
+
+    const onResizeHandler = () => {
+        if (window.innerWidth < 600) {
+            setIsSmallAdminSideScreen(_ => true);
+        }
+        else {
+            setIsSmallAdminSideScreen(_ => false)
+            setShowAdminSideSecondaryNavbar(_ => false);
+        }
+    }
+
+    useEffect(() => {
+        onResizeHandler();
+        window.addEventListener('resize', onResizeHandler)
+        return () => window.removeEventListener('resize', onResizeHandler)
+    }, [])
+
+}
+
+export { useObserveClientScreenSize, useObserveAdminScreenSize };

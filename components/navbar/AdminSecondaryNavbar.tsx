@@ -1,18 +1,19 @@
 import { MdClose } from "react-icons/md";
-import ClientNavbarHeader from "./ClientNavbarHeader";
 import { useAppContext } from "@/providers/ContextProvider";
 import { NavbarMenuItem } from "./NavbarMenuItems";
+import AdminNavbarHeader from "./AdminNavbarHeader";
+import AuthUtils from "@/utils/auth/auth_utils";
 
-const ClientSecondaryNavbar = () => {
-    const { setShowClientSideSecondaryNavbar, showClientSideSecondaryNavbar } = useAppContext()
+const AdminSecondaryNavbar = () => {
+    const { setShowAdminSideSecondaryNavbar, showAdminSideSecondaryNavbar } = useAppContext()
 
-    if (showClientSideSecondaryNavbar) return (
+    if (showAdminSideSecondaryNavbar) return (
         <section className="absolute top-0 z-10 bg-[#131313] p-4 left-0 w-full">
             <div className="justify-between items-center flex">
-                <ClientNavbarHeader />
+                <AdminNavbarHeader />
                 <section
                     className="cursor-pointer"
-                    onClick={() => setShowClientSideSecondaryNavbar(_ => false)}
+                    onClick={() => setShowAdminSideSecondaryNavbar(_ => false)}
                 >
                     <MdClose
                         size={30}
@@ -22,14 +23,20 @@ const ClientSecondaryNavbar = () => {
             <div className="space-y-4 mt-4 flex flex-col items-center justify-center">
                 <NavbarMenuItem
                     name="Home"
+                    href="/admin"
                 />
                 <NavbarMenuItem
-                    name="About Us"
-                    href="/#about-us"
+                    name="Interested Buyers"
+                    href="/admin/interested-buyers"
                 />
                 <NavbarMenuItem
-                    name="Browse Vehicles"
-                    href="/vehicles"
+                    name="Vehicles"
+                    href="/admin/vehicles"
+                />
+                <NavbarMenuItem
+                    name="Logout"
+                    isLink={false}
+                    onPressedHandler={() => AuthUtils.logout()}
                 />
             </div>
         </section>
@@ -40,4 +47,4 @@ const ClientSecondaryNavbar = () => {
     )
 }
 
-export default ClientSecondaryNavbar;
+export default AdminSecondaryNavbar;

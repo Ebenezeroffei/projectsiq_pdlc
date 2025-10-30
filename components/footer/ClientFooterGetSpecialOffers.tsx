@@ -17,7 +17,7 @@ const ClientFooterGetSpecialOffers = () => {
                 setValue={setEmail}
                 value={email}
             />
-            <button className={`bg-primary mt-4 py- text-white text-sm uppercase transition-colors w-[200px] h-[57px] duration-150 hover:bg-secondary ${notoSans.className} cursor-pointer rounded-xs tracking-wider`}>
+            <button className={`bg-primary text-white text-sm uppercase transition-colors w-[200px] h-[57px] duration-150 hover:bg-secondary ${notoSans.className} cursor-pointer rounded-xs tracking-wider`}>
                 Subscribe
             </button>
         </section>

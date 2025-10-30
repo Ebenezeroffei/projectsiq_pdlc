@@ -2,10 +2,10 @@
 
 import { useObserveClientScreenSize } from "@/hooks/useObserveScreenSize"
 import ClientNavbarHeader from "./ClientNavbarHeader"
-import ClientNavbarMenuItems, { ClientNavbarMenuItem } from "./ClientNavbarMenuItems"
 import { useAppContext } from "@/providers/ContextProvider"
 import ClientNavbarHamburgerMenu from "./ClientNavbarHamburgerMenu"
 import ClientSecondaryNavbar from "./ClientSecondaryNavbar"
+import NavbarMenuItems, { NavbarMenuItem } from "./NavbarMenuItems"
 
 const ClientNavbar = () => {
     useObserveClientScreenSize();
@@ -18,19 +18,19 @@ const ClientNavbar = () => {
                 isSmallClientSideScreen ? (
                     <ClientNavbarHamburgerMenu />
                 ) : (
-                    <ClientNavbarMenuItems>
-                        <ClientNavbarMenuItem
+                    <NavbarMenuItems>
+                        <NavbarMenuItem
                             name="Home"
                         />
-                        <ClientNavbarMenuItem
+                        <NavbarMenuItem
                             name="About Us"
                             href="/#about-us"
                         />
-                        <ClientNavbarMenuItem
+                        <NavbarMenuItem
                             name="Browse Vehicles"
                             href="/vehicles"
                         />
-                    </ClientNavbarMenuItems>
+                    </NavbarMenuItems>
                 )
             }
         </nav>

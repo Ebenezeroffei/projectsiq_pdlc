@@ -7,6 +7,10 @@ export type ContextValuesType = {
     setIsSmallClientSideScreen: Dispatch<SetStateAction<boolean>>,
     showClientSideSecondaryNavbar: boolean,
     setShowClientSideSecondaryNavbar: Dispatch<SetStateAction<boolean>>,
+    isSmallAdminSideScreen: boolean,
+    setIsSmallAdminSideScreen: Dispatch<SetStateAction<boolean>>,
+    showAdminSideSecondaryNavbar: boolean,
+    setShowAdminSideSecondaryNavbar: Dispatch<SetStateAction<boolean>>,
     showSecondarySidebar: boolean,
     setShowSecondarySidebar: Dispatch<SetStateAction<boolean>>,
     modalTitle: string | undefined,
@@ -23,6 +27,8 @@ const AppContext = createContext<ContextValuesType | null>(null);
 const ContextProvider = ({ children }: PropsWithChildren) => {
     const [isSmallClientSideScreen, setIsSmallClientSideScreen] = useState(true);
     const [showClientSideSecondaryNavbar, setShowClientSideSecondaryNavbar] = useState(false);
+    const [isSmallAdminSideScreen, setIsSmallAdminSideScreen] = useState(true);
+    const [showAdminSideSecondaryNavbar, setShowAdminSideSecondaryNavbar] = useState(false);
     const [showSecondarySidebar, setShowSecondarySidebar] = useState(false);
     const [modalTitle, setModalTitle] = useState<string>();
     const [modalContent, setModalContent] = useState<ReactNode>();
@@ -34,6 +40,10 @@ const ContextProvider = ({ children }: PropsWithChildren) => {
         setIsSmallClientSideScreen,
         showClientSideSecondaryNavbar,
         setShowClientSideSecondaryNavbar,
+        isSmallAdminSideScreen,
+        setIsSmallAdminSideScreen,
+        showAdminSideSecondaryNavbar,
+        setShowAdminSideSecondaryNavbar,
         showSecondarySidebar,
         setShowSecondarySidebar,
         modalTitle,
