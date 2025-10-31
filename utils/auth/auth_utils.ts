@@ -26,7 +26,10 @@ class AuthUtils {
             setIsButtonLoading(_ => false);
             if (res?.ok) {
                 toast.success("Login Successful");
-                router.replace('/admin')
+                const searchParams = new URL(window.location.href).searchParams
+                searchParams.has('callbackUrl')
+                    ? router.replace(String(searchParams.get('callbackUrl')))
+                    : router.replace('/admin')
             }
             else {
                 toast.error(res?.error)

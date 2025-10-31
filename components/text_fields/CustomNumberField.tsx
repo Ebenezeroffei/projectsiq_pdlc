@@ -5,6 +5,11 @@ const CustomNumberField = ({
     setValue,
     label,
     step,
+    min,
+    max,
+    helpText,
+    errorText,
+    pattern,
 }: TextFieldProps) => {
     return (
         <CustomTextField
@@ -12,8 +17,12 @@ const CustomNumberField = ({
             setValue={setValue}
             label={label}
             textType="number"
-            min={0}
+            min={min}
+            max={max}
             step={step}
+            helpText={helpText}
+            errorText={errorText}
+            pattern={pattern}
         />
     )
 }

@@ -2,12 +2,25 @@
 
 import ClientPageWrapper from "@/components/misc/ClientPageWrapper"
 import CustomSearchField from "@/components/text_fields/CustomSearchField"
-import { useState } from "react"
+import { useId, useState } from "react"
 import Vehicle from "./Vehicle"
 import ImageAssets from "@/constants/misc/image_assets"
+import useSWR from "swr"
+import Endpoints from "@/utils/misc/endpoints"
+import NoItem from "@/components/misc/NoItem"
+import ErrorAlert from "@/components/misc/ErrorAlert"
+import TableSkeleton from "@/components/skeleton/TableSkeleton"
+import CarEntity from "@/@types/entities/CarEntity"
+import Paginator from "@/@types/entities/Paginator"
+import MiscUtils from "@/utils/misc/misc_utils"
 
 const VehiclesPageWrapper = () => {
     const [query, setQuery] = useState('')
+    const { data, error, mutate, isLoading, isValidating } = useSWR(Endpoints.cars.listOrCreate, MiscUtils.getData<Paginator<CarEntity>>, {
+        revalidateOnFocus: false,
+    })
+    const randomId = useId();
+
     return (
         <ClientPageWrapper>
             <section>
@@ -16,80 +29,34 @@ const VehiclesPageWrapper = () => {
                     setQuery={setQuery}
                     placeholder="Search vehicles..."
                 />
-                <div className="flex flex-wrap justify-center items-center gap-12 mt-16">
-                    <Vehicle
-                        image={ImageAssets.Car1}
-                        brand="KIA"
-                        model="Morning"
-                        price="50000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car2}
-                        brand="Toyota"
-                        model="Camry"
-                        price="55000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car3}
-                        brand="Honda"
-                        model="Civic"
-                        price="52000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car4}
-                        brand="Ford"
-                        model="Fusion"
-                        price="53000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car5}
-                        brand="Chevrolet"
-                        model="Malibu"
-                        price="54000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car6}
-                        brand="Nissan"
-                        model="Altima"
-                        price="51000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car1}
-                        brand="Hyundai"
-                        model="Elantra"
-                        price="50000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car2}
-                        brand="Volkswagen"
-                        model="Passat"
-                        price="56000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car3}
-                        brand="Mazda"
-                        model="Mazda3"
-                        price="53000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car4}
-                        brand="Subaru"
-                        model="Impreza"
-                        price="55000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car5}
-                        brand="Tesla"
-                        model="Model 3"
-                        price="60000"
-                    />
-                    <Vehicle
-                        image={ImageAssets.Car6}
-                        brand="BMW"
-                        model="3 Series"
-                        price="65000"
-                    />
-                </div>
+                {
+                    (isLoading || isValidating) ? (
+                        <TableSkeleton />
+
+                    ) : (
+                        error ? (
+                            <ErrorAlert
+                                errorMessage={error.message}
+                                onRefreshHandler={mutate}
+                            />
+                        ) : (
+                            data?.results.length ?? 0 > 0 ? (
+                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
+                                    {
+                                        data?.results.map((vehicle, index) => (
+                                            <Vehicle
+                                                key={`${randomId}_${index}_vehicle`}
+                                                vehicle={vehicle}
+                                            />
+                                        ))
+                                    }
+                                </div>
+                            ) : (
+                                <NoItem text="No Vehicle Added" />
+                            )
+                        )
+                    )
+                }
             </section>
         </ClientPageWrapper>
     )

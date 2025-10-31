@@ -5,7 +5,9 @@ class Validators {
 
     static Email = /^[a-zA-Z0-9_.+-]+@[a-z]+\.[a-z]{3,}(\.[a-z]{2,})?$/;
 
-    static OTP = /^[\d]{6}$/
+    static OTP = /^[\d]{6}$/;
+
+    static Year = /[\d]{4}/
 }
 
 export default Validators;

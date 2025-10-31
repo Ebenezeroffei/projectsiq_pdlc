@@ -6,7 +6,7 @@ const AdminLayout = ({ children }: Readonly<PropsWithChildren>) => {
     return (
         <>
             <AdminNavbar />
-            <main>
+            <main className="p-4">
                 {children}
             </main>
             <AdminFooter />

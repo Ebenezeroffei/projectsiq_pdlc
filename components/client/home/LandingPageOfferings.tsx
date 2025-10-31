@@ -7,11 +7,35 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from 'swiper/modules'
 import Vehicle from "../vehicles/Vehicle"
 import { useRouter } from "next/navigation"
+import MiscUtils from "@/utils/misc/misc_utils"
+import Paginator from "@/@types/entities/Paginator"
+import CarEntity from "@/@types/entities/CarEntity"
+import Endpoints from "@/utils/misc/endpoints"
+import useSWR from "swr"
+import VehicleSkeleton from "../vehicles/VehicleSkeleton"
+import { useEffect, useId, useState } from "react"
+import { Elsie_Swash_Caps } from "next/font/google"
 
 
 
 const LandingPageOfferings = () => {
     const router = useRouter();
+    const { data, error, mutate, isLoading, isValidating } = useSWR(Endpoints.cars.listOrCreate, MiscUtils.getData<Paginator<CarEntity>>, {
+        revalidateOnFocus: false,
+    });
+    const randomId = useId();
+    const [selectedVehicles, setSelectedVehicles] = useState<CarEntity[]>([])
+
+    useEffect(() => {
+        if (data) {
+            if (data.results.length > 5) {
+                setSelectedVehicles(_ => data.results.slice(5))
+            }
+            else {
+                setSelectedVehicles(_ => data.results);
+            }
+        }
+    }, [data])
 
     return (
         <section className="px-8 py-24">
@@ -35,47 +59,38 @@ const LandingPageOfferings = () => {
                 }}
                 loop={true}
             >
-                <SwiperSlide className="landing-page-offering-slide">
-                    <Vehicle
-                        image={ImageAssets.Car1}
-                        brand="KIA"
-                        model="Morning"
-                        price="50000"
-                    />
-                </SwiperSlide>
-                <SwiperSlide className="landing-page-offering-slide">
-                    <Vehicle
-                        image={ImageAssets.Car2}
-                        brand="Toyota"
-                        model="Corolla"
-                        price="40000"
-                    />
-                </SwiperSlide>
-                <SwiperSlide className="landing-page-offering-slide">
-                    <Vehicle
-                        image={ImageAssets.Car3}
-                        brand="Honda"
-                        model="Civic"
-                        price="45000"
-                    />
-                </SwiperSlide>
-                <SwiperSlide className="landing-page-offering-slide">
-                    <Vehicle
-                        image={ImageAssets.Car4}
-                        brand="Ford"
-                        model="Mustang"
-                        price="55000"
-                    />
-                </SwiperSlide>
-                <SwiperSlide className="landing-page-offering-slide">
-                    <Vehicle
-                        image={ImageAssets.Car5}
-                        brand="Chevrolet"
-                        model="Camaro"
-                        price="53000"
-                    />
-                </SwiperSlide>
+                {
+                    (selectedVehicles.length > 0) ? (
 
+                        selectedVehicles.map((vehicle, index) => (
+                            <SwiperSlide className="landing-page-offering-slide">
+                                <Vehicle
+                                    key={`${randomId}_${index}_vehicle`}
+                                    vehicle={vehicle}
+                                />
+                            </SwiperSlide>
+                        ))
+
+                    ) : (
+                        <>
+                            <SwiperSlide className="landing-page-offering-slide">
+                                <VehicleSkeleton />
+                            </SwiperSlide>
+                            <SwiperSlide className="landing-page-offering-slide">
+                                <VehicleSkeleton />
+                            </SwiperSlide>
+                            <SwiperSlide className="landing-page-offering-slide">
+                                <VehicleSkeleton />
+                            </SwiperSlide>
+                            <SwiperSlide className="landing-page-offering-slide">
+                                <VehicleSkeleton />
+                            </SwiperSlide>
+                            <SwiperSlide className="landing-page-offering-slide">
+                                <VehicleSkeleton />
+                            </SwiperSlide>
+                        </>
+                    )
+                }
             </Swiper>
             <div className="flex justify-center mt-8">
                 <CustomButton text="View More" onPressedHandler={() => router.push('/vehicles')} />

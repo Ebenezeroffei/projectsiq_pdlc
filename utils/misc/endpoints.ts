@@ -5,6 +5,12 @@ class Endpoints {
         'validateToken': 'password-reset/validate_token/',
         'resetPassword': 'password-reset/confirm/',
     }
+
+    static cars = {
+        'listOrCreate': 'cars/',
+        'detail': (id: string) => `cars/${id}/`,
+        'form': 'cars/form/',
+    }
 }
 
 export default Endpoints

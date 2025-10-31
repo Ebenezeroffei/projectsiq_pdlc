@@ -117,13 +117,7 @@ class TextFieldUtils {
         }
     }
 
-    static clearImage = (
-        setFile: Dispatch<SetStateAction<Blob | null>>,
-        setFilename: Dispatch<SetStateAction<string>>,
-    ) => {
-        setFile(_ => null);
-        setFilename(_ => '');
-    }
+
 }
 
 

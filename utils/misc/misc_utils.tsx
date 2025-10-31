@@ -90,6 +90,16 @@ class MiscUtils {
         }
     }
 
+    static blobToBase64(blob: Blob) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(String(reader.result));
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    }
+
+
     static getData = async <T,>(
         url: string,
         throwException: boolean = true,

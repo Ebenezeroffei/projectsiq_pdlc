@@ -37,7 +37,7 @@ const CustomFileInput = ({
             <div>
                 <label
                     htmlFor={inputNameAndId}
-                    className="text-xs font-semibold capitalize tracking-wide text-gray-600 flex"
+                    className="capitalize text-sm tracking-wide text-white flex"
                 >
                     {label}:
                     {
@@ -52,7 +52,7 @@ const CustomFileInput = ({
                 </label>
             </div>
             {/* Input */}
-            <div className="p-2 my-2 border cursor-pointer relative border-gray-200 flex transition-all duration-100 items-center gap-x-2 rounded">
+            <div className="px-10 py-3 my-2 rounded-xs border border-transparent bg-[#2a2a2a]  flex transition-all duration-100 items-center gap-x-2 focus-within:border-primary">
                 <input
                     type='file'
                     id={inputNameAndId}
@@ -68,26 +68,9 @@ const CustomFileInput = ({
                 />
                 <div
                     onClick={() => inputRef.current?.click()}
-                    className="flex-auto text-gray-500 font-semibold text-sm tracking-wide outline-none truncate">
+                    className="flex-auto text-white text-sm tracking-wide outline-none truncate">
                     {filename || "Choose file"}
                 </div>
-                {/* Clear Button */}
-                {
-                    filename && (
-                        <section
-                            className="bg-red-100 p-0.5 cursor-pointer flex-none transition-colors duration-150 hover:bg-red-200"
-                            onClick={() => TextFieldUtils.clearImage(
-                                setFile,
-                                setFilename,
-                            )}
-                        >
-                            <MdClose
-                                className="text-red-600"
-                                size={15}
-                            />
-                        </section>
-                    )
-                }
             </div>
             {/* Error or Help Texts */}
             {

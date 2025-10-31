@@ -5,18 +5,17 @@ import NotoSans from "@/components/misc/NotoSans"
 import Image, { StaticImageData } from "next/image"
 import { useRouter } from "next/navigation"
 
-type VehicleProps = Readonly<{
+type AdminVehicleProps = Readonly<{
     vehicle: CarEntity
 }>
 
-const Vehicle = ({
+const AdminVehicle = ({
     vehicle
-}: VehicleProps) => {
-    const router = useRouter();
+}: AdminVehicleProps) => {
     const thumbnail = vehicle.images[0].image;
 
     return (
-        <section className="bg-neutral-800 rounded-xs max-w-[350px]">
+        <section className="bg-neutral-800 rounded-xs">
             <div className="relative">
                 <section className={`absolute top-2 text-xs font-semibold uppercase tracking-wider rounded-xs right-2 py-1 px-4 text-white bg-primary/80`}>
                     {vehicle.year}
@@ -58,13 +57,9 @@ const Vehicle = ({
                         + More
                     </div>
                 </section>
-                <section className="flex gap-4">
-                    <CustomButton text="Show Interest" />
-                    <CustomSecondaryButton text="View" onPressedHandler={() => router.push(`/vehicles/${vehicle.id}`)} />
-                </section>
             </div>
         </section>
     )
 }
 
-export default Vehicle;
+export default AdminVehicle;

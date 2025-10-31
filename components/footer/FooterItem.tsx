@@ -16,7 +16,7 @@ const FooterItem = ({
     if (isLink) return (
         <Link
             href={href}
-            className="uppercase tracking-widest text-xs font-semibold text-white/60 transition-all duration-150 hover:text-white"
+            className="uppercase block tracking-widest text-xs font-semibold text-white/60 transition-all duration-150 hover:text-white"
         >
             {name}
         </Link>
