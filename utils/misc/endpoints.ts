@@ -1,4 +1,9 @@
 class Endpoints {
+    static core = {
+        'networkStatus': 'network-status/',
+        'subscribe': 'subscribe/'
+    }
+
     static auth = {
         'login': 'login/',
         'requestPasswordReset': 'password-reset/',

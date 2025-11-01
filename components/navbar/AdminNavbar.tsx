@@ -9,10 +9,14 @@ import NavbarMenuItems, { NavbarMenuItem } from "./NavbarMenuItems"
 import AuthUtils from "@/utils/auth/auth_utils"
 import AdminSecondaryNavbar from "./AdminSecondaryNavbar"
 import AdminNavbarHamburgerMenu from "./AdminHamburgerMenu"
+import MiscUtils from "@/utils/misc/misc_utils"
 
 const AdminNavbar = () => {
     useObserveAdminScreenSize();
-    const { isSmallAdminSideScreen } = useAppContext();
+    const contextValues = useAppContext();
+    const { isSmallAdminSideScreen } = contextValues;
+    const modalTitle = "Logout";
+    const modalContent = "Are you sure you want to logout?"
     return (
         <nav className="p-4 text-white w-full flex  justify-between items-center">
             <AdminNavbarHeader />
@@ -26,10 +30,7 @@ const AdminNavbar = () => {
                             name="Home"
                             href="/admin"
                         />
-                        <NavbarMenuItem
-                            name="Interested Buyers"
-                            href="/admin/interested-buyers"
-                        />
+                        {/* <N\ */}
                         <NavbarMenuItem
                             name="Vehicles"
                             href="/admin/vehicles"
@@ -37,7 +38,12 @@ const AdminNavbar = () => {
                         <NavbarMenuItem
                             name="Logout"
                             isLink={false}
-                            onPressedHandler={() => AuthUtils.logout()}
+                            onPressedHandler={() => MiscUtils.showConfirmDialogue(
+                                contextValues,
+                                modalTitle,
+                                modalContent,
+                                () => AuthUtils.logout()
+                            )}
                         />
                     </NavbarMenuItems>
                 )

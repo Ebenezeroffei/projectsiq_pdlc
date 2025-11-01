@@ -9,6 +9,7 @@ import { ContextValuesType } from "@/providers/ContextProvider";
 import { toast } from "react-toastify";
 import { Dispatch, SetStateAction } from "react";
 import AlertDialogue from "@/components/misc/AlertDialogue";
+import Endpoints from "./endpoints";
 
 
 class MiscUtils {
@@ -82,8 +83,7 @@ class MiscUtils {
 
     static checkNetworkStatus = async () => {
         try {
-            const url = `${process.env.NEXT_PUBLIC_API_URL}network-status/`;
-            await axios.get(url);
+            await api.get(Endpoints.core.networkStatus);
             return true
         }
         catch {
