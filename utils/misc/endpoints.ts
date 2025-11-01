@@ -11,6 +11,12 @@ class Endpoints {
         'detail': (id: string) => `cars/${id}/`,
         'form': 'cars/form/',
     }
+
+    static leads = {
+        'listOrCreate': 'leads/',
+        'detail': (id: string) => `leads/${id}/`,
+        'markAsContacted': (id: string) => `leads/${id}/contacted/`,
+    }
 }
 
 export default Endpoints

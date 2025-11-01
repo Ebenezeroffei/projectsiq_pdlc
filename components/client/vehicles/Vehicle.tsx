@@ -2,7 +2,10 @@ import CarEntity from "@/@types/entities/CarEntity"
 import CustomButton from "@/components/buttons/CustomButton"
 import CustomSecondaryButton from "@/components/buttons/CustomSecondaryButton"
 import NotoSans from "@/components/misc/NotoSans"
-import Image, { StaticImageData } from "next/image"
+import { useAppContext } from "@/providers/ContextProvider"
+import LeadUtils from "@/utils/leads/lead_utils"
+import VehicleUtils from "@/utils/vehicles/vehicle_utils"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 type VehicleProps = Readonly<{
@@ -14,6 +17,7 @@ const Vehicle = ({
 }: VehicleProps) => {
     const router = useRouter();
     const thumbnail = vehicle.images[0].image;
+    const contextValues = useAppContext();
 
     return (
         <section className="bg-neutral-800 rounded-xs max-w-[350px]">
@@ -59,7 +63,13 @@ const Vehicle = ({
                     </div>
                 </section>
                 <section className="flex gap-4">
-                    <CustomButton text="Show Interest" />
+                    <CustomButton
+                        text="Show Interest"
+                        onPressedHandler={() => LeadUtils.showInterestAttempt(
+                            contextValues,
+                            vehicle,
+                        )}
+                    />
                     <CustomSecondaryButton text="View" onPressedHandler={() => router.push(`/vehicles/${vehicle.id}`)} />
                 </section>
             </div>

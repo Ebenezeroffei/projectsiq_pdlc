@@ -7,6 +7,8 @@ import ErrorAlert from "@/components/misc/ErrorAlert";
 import NotoSans from "@/components/misc/NotoSans"
 import TableSkeleton from "@/components/skeleton/TableSkeleton";
 import ImageAssets from "@/constants/misc/image_assets"
+import { useAppContext } from "@/providers/ContextProvider";
+import LeadUtils from "@/utils/leads/lead_utils";
 import Endpoints from "@/utils/misc/endpoints";
 import MiscUtils from "@/utils/misc/misc_utils";
 import Image from "next/image"
@@ -27,6 +29,7 @@ const VehicleDetailPageWrapper = ({
         revalidateOnFocus: false,
     })
     const randomId = useId();
+    const contextValues = useAppContext();
 
     // Observe data
     useEffect(() => {
@@ -132,7 +135,13 @@ const VehicleDetailPageWrapper = ({
                             }
                         </div>
                     </section>
-                    <CustomButton text="Show Interest" />
+                    <CustomButton
+                        text="Show Interest"
+                        onPressedHandler={() => LeadUtils.showInterestAttempt(
+                            contextValues,
+                            vehicle,
+                        )}
+                    />
                     <section className="mt-4">
                         <NotoSans className="text-zinc-300 text-sm font-semibold uppercase">
                             Description

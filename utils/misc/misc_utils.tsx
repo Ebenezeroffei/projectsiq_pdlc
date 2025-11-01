@@ -7,6 +7,8 @@ import { getSession, signOut } from "next-auth/react";
 import { KeyedMutator } from "swr";
 import { ContextValuesType } from "@/providers/ContextProvider";
 import { toast } from "react-toastify";
+import { Dispatch, SetStateAction } from "react";
+import AlertDialogue from "@/components/misc/AlertDialogue";
 
 
 class MiscUtils {
@@ -120,22 +122,22 @@ class MiscUtils {
 
     }
 
-    // static showConfirmDialogue = (
-    //     contextValues: ContextValuesType,
-    //     modalTitle: string,
-    //     modalContent: string,
-    //     onYesResponseHandler: () => {}
-    // ) => {
-    //     const { setModalTitle, setModalContent, setShowSmallModal } = contextValues;
-    //     setModalTitle(_ => modalTitle);
-    //     setModalContent(_ =>
-    //         <AlertDialogue
-    //             onYesResponseHandler={onYesResponseHandler}
-    //             content={modalContent}
-    //         />
-    //     );
-    //     setShowSmallModal(_ => true);
-    // }
+    static showConfirmDialogue = (
+        contextValues: ContextValuesType,
+        modalTitle: string,
+        modalContent: string,
+        onYesResponseHandler: () => void
+    ) => {
+        const { setModalTitle, setModalContent, setShowSmallModal } = contextValues;
+        setModalTitle(_ => modalTitle);
+        setModalContent(_ =>
+            <AlertDialogue
+                onYesResponseHandler={onYesResponseHandler}
+                content={modalContent}
+            />
+        );
+        setShowSmallModal(_ => true);
+    }
 
     static deleteItemMutate = async <T,>(
         url: string,
@@ -195,6 +197,15 @@ class MiscUtils {
             return `${urlLst[0]}?${searchParams.toString()}`
         }
         return `${url}?${key}=${value}`
+    }
+
+    static search = (
+        inputId: string,
+        defaultUrl: string,
+        setUrl: Dispatch<SetStateAction<string>>,
+    ) => {
+        const query = (document.getElementById(inputId) as HTMLInputElement).value;
+        setUrl(_ => MiscUtils.appendQueryString(defaultUrl, 'search', query))
     }
 }
 

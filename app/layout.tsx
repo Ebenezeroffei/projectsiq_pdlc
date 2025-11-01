@@ -5,6 +5,7 @@ import ContextProvider from "@/providers/ContextProvider";
 import "@/styles/globals.css";
 import 'react-toastify/ReactToastify.css';
 import 'swiper/css'
+import ModalProvider from "@/providers/ModalProvider";
 
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="bg-[#1a1a1a]">
         <ToastContainer />
         <ContextProvider>
+          <ModalProvider />
           {children}
         </ContextProvider>
       </body>

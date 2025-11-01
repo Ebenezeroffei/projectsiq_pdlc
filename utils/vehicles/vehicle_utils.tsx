@@ -4,6 +4,9 @@ import MiscUtils from "../misc/misc_utils";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { api } from "@/lib/axios_options";
 import Endpoints from "../misc/endpoints";
+import { ContextValuesType } from "@/providers/ContextProvider";
+import CarEntity from "@/@types/entities/CarEntity";
+import InterestedBuyerForm from "@/components/misc/InterestedBuyerForm";
 
 class VehicleUtils {
     static addFeature = (
@@ -128,6 +131,8 @@ class VehicleUtils {
             }
         }
     }
+
+
 }
 
 export default VehicleUtils;

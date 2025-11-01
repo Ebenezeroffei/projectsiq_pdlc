@@ -2,6 +2,7 @@
 
 import { MdClose } from "react-icons/md";
 import { useAppContext } from "./ContextProvider";
+import NotoSans from "@/components/misc/NotoSans";
 
 const ModalProvider = () => {
   const { modalTitle, modalContent, showSmallModal, setShowSmallModal, showBigModal, setShowBigModal } = useAppContext();
@@ -13,29 +14,31 @@ const ModalProvider = () => {
 
   return (
     <section
-      className={`bg-black/80 transition-all duration-150 flex p-8 justify-center items-center fixed top-0 left-0 w-screen h-screen ${(showBigModal || showSmallModal) ? 'z-20' : '-z-20'}`}
+      className={`bg-black/80 transition-all duration-150 flex p-8 justify-center items-center fixed top-0 left-0 w-screen h-screen ${(showBigModal || showSmallModal) ? 'z-30' : '-z-30'}`}
     >
       {/* Small Modal */}
       {
         showSmallModal && (
 
-          <div className="p-4 bg-white rounded max-w-[400px] flex-1">
+          <div className="p-4 bg-[#1a1a1a] rounded max-w-[400px] flex-1">
             <section className="flex justify-between items-center pb-4">
-              <p
-                className="font-semibold text-primary tracking-wider"
-              >
-                {modalTitle}
-              </p>
+              <NotoSans>
+                <p
+                  className={`font-semibold uppercase text-primary tracking-wider`}
+                >
+                  {modalTitle}
+                </p>
+              </NotoSans>
               <div
-                className="bg-red-50 rounded p-1 cursor-pointer transition-colors duration-150 hover:bg-red-100 group"
+                className="bg-red-500 rounded-xs p-1 cursor-pointer transition-colors duration-150 hover:bg-red-400 group"
                 onClick={closeModal}
               >
                 <MdClose
-                  className="text-red-500 transition-colors duration-150 group-hover:text-red-600"
+                  className="text-white transition-colors duration-150"
                 />
               </div>
             </section>
-            <section className="text-5xl overflow-y-auto max-h-[calc(100vh_-_150px)]">
+            <section className="text-white overflow-y-auto max-h-[calc(100vh_-_150px)]">
               {modalContent}
             </section>
           </div>
@@ -45,23 +48,25 @@ const ModalProvider = () => {
       {
         showBigModal && (
 
-          <div className="p-4 bg-white rounded w-full flex-1">
+          <div className="p-4 bg-[#1a1a1a] rounded-xs w-full flex-1">
             <section className="flex justify-between items-center pb-4">
-              <p
-                className="font-semibold text-primary tracking-wider"
-              >
-                {modalTitle}
-              </p>
+              <NotoSans>
+                <p
+                  className={`font-semibold uppercase text-primary tracking-wider`}
+                >
+                  {modalTitle}
+                </p>
+              </NotoSans>
               <div
-                className="bg-red-50 rounded p-1 cursor-pointer transition-colors duration-150 hover:bg-red-100 group"
+                className="bg-red-500 rounded-xs p-1 cursor-pointer transition-colors duration-150 hover:bg-red-400 group"
                 onClick={closeModal}
               >
                 <MdClose
-                  className="text-red-500 transition-colors duration-150 group-hover:text-red-600"
+                  className="text-white transition-colors duration-150"
                 />
               </div>
             </section>
-            <section className="text-5xl overflow-y-auto max-h-[calc(100vh_-_150px)]">
+            <section className="text-white overflow-y-auto max-h-[calc(100vh_-_150px)]">
               {modalContent}
             </section>
           </div>

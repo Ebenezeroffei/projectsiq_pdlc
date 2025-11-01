@@ -1,7 +1,8 @@
+import LeadsPageWrapper from "./leads/LeadsPageWrapper"
 
 const AdminHomePageWrapper = () => {
     return (
-        <div>AdminHomePageWrapper</div>
+        <LeadsPageWrapper />
     )
 }
 
