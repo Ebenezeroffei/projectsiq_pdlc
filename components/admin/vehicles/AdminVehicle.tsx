@@ -1,18 +1,28 @@
 import CarEntity from "@/@types/entities/CarEntity"
+import Paginator from "@/@types/entities/Paginator"
 import CustomButton from "@/components/buttons/CustomButton"
 import CustomSecondaryButton from "@/components/buttons/CustomSecondaryButton"
 import NotoSans from "@/components/misc/NotoSans"
+import { useAppContext } from "@/providers/ContextProvider"
+import Endpoints from "@/utils/misc/endpoints"
+import MiscUtils from "@/utils/misc/misc_utils"
 import Image, { StaticImageData } from "next/image"
 import { useRouter } from "next/navigation"
+import { KeyedMutator } from "swr"
 
 type AdminVehicleProps = Readonly<{
-    vehicle: CarEntity
+    vehicle: CarEntity,
+    mutate: KeyedMutator<Paginator<CarEntity> | undefined>,
 }>
 
 const AdminVehicle = ({
-    vehicle
+    vehicle,
+    mutate
 }: AdminVehicleProps) => {
     const thumbnail = vehicle.images[0].image;
+    const contextValues = useAppContext();
+    const deleteModalTitle = "Delete Vehicle"
+    const deleteModalContent = "Are you sure you want to delete this vehicle?"
 
     return (
         <section className="bg-neutral-800 rounded-xs">
@@ -57,6 +67,18 @@ const AdminVehicle = ({
                         + More
                     </div>
                 </section>
+                <CustomButton
+                    text="Remove"
+                    onPressedHandler={() => MiscUtils.showConfirmDialogue(
+                        contextValues,
+                        deleteModalTitle,
+                        deleteModalContent,
+                        () => MiscUtils.deleteItemMutate(
+                            Endpoints.cars.detail(vehicle.id),
+                            mutate,
+                        )
+                    )}
+                />
             </div>
         </section>
     )

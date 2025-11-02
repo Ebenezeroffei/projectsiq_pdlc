@@ -84,6 +84,7 @@ const AdminVehiclesPageWrapper = () => {
                                             <AdminVehicle
                                                 key={`${randomId}_${index}_vehicle`}
                                                 vehicle={vehicle}
+                                                mutate={mutate}
                                             />
                                         ))
                                     }
