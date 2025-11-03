@@ -6,7 +6,7 @@ const ClientNavbarHeader = () => {
     return (
         <Link href={'/'}>
             <h1 className={`text-3xl ${notoSans.className}`}>
-                DriveIQ
+                PDLC
             </h1>
         </Link>
     )

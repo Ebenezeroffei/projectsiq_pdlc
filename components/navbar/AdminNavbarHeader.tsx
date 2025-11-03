@@ -6,7 +6,7 @@ const AdminNavbarHeader = () => {
     return (
         <Link href={'/admin'}>
             <h1 className={`text-3xl text-white ${notoSans.className}`}>
-                PLBC
+                PDLC
                 <span className="text-primary ml-1">
                     Admin
                 </span>

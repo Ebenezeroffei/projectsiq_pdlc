@@ -20,18 +20,18 @@ const LandingPageAboutUsSection = () => {
                 <NotoSans className="text-center uppercase space-y-6 text-white">
                     <p className="font-semibold text-white/80">About Us</p>
                     <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">
-                        Welcome To DriveIQ
+                        Welcome To PDLC
                     </h2>
                 </NotoSans>
                 <p className="text-white mt-4">
-                    DriveIQ was founded with a bold vision: to transform the way people buy cars in Ghana and beyond. What began as a simple idea — making car shopping more accessible and trustworthy — quickly evolved into a dynamic platform that connects buyers with quality vehicles, both new and used, in a seamless and intelligent way.
+                    PDLC which stands for Precision Domiabra Limited Company was founded with a bold vision: to transform the way people buy cars in Ghana and beyond. What began as a simple idea — making car shopping more accessible and trustworthy — quickly evolved into a dynamic platform that connects buyers with quality vehicles, both new and used, in a seamless and intelligent way.
                     <br /> <br />
-                    The inspiration behind DriveIQ came from years of observing how difficult and time-consuming it was for everyday people to find reliable cars. From confusing pricing to limited options and questionable sellers, the process was often frustrating. That’s when the idea of DriveIQ was born — a smart, user-friendly solution that puts the power back in the hands of the buyer.
+                    The inspiration behind PDLC came from years of observing how difficult and time-consuming it was for everyday people to find reliable cars. From confusing pricing to limited options and questionable sellers, the process was often frustrating. That’s when the idea of PDLC was born — a smart, user-friendly solution that puts the power back in the hands of the buyer.
                     <br /> <br />
                     Our platform is designed to be intuitive and responsive, allowing users to filter by brand, price, condition, and more. Every listing is vetted for quality, and every seller is verified to ensure transparency and trust. We’re not just selling cars — we’re building a community of informed buyers and honest sellers.
                     <br /> <br />
-                    At DriveIQ, we believe that buying a car should be exciting, not exhausting.
-                    DriveIQ — where smart car buying begins.
+                    At PDLC, we believe that buying a car should be exciting, not exhausting.
+                    PDLC — where smart car buying begins.
                 </p>
             </div>
         </section>
