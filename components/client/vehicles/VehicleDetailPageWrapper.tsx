@@ -123,6 +123,12 @@ const VehicleDetailPageWrapper = ({
                             <div className="py-1 rounded-xs tracking-wide border px-1.5 border-zinc-600 text-xs text-white/60">
                                 Seating Capacity : {vehicle.seating_capacity}
                             </div>
+                            <div className="py-1 flex gap-1 rounded-xs tracking-wide border px-1.5 border-zinc-600 text-xs text-white/60">
+                                Color : <div className="w-4 border border-white" style={{
+                                    backgroundColor: vehicle.color
+                                }}>
+                                </div>
+                            </div>
                             {
                                 Object.keys(vehicle.features).map((featureKey, index) => (
                                     <div

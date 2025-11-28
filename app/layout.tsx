@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#1a1a1a]">
-        <ToastContainer />
+        <ToastContainer closeOnClick={true} />
         <ContextProvider>
           <ModalProvider />
           {children}

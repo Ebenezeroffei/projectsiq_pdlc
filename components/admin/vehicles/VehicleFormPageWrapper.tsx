@@ -112,7 +112,7 @@ const VehicleFormPageWrapper = () => {
     const [drivetrains, setDrivetrains] = useState<SelectFieldDictValue[]>([])
     const [drivetrain, setDrivetrain] = useState('');
     const [year, setYear] = useState('');
-    const [color, setColor] = useState('')
+    const [color, setColor] = useState('#000000')
     const [seatingCapacity, setSeatingCapacity] = useState('')
     const [numberOfDoors, setNumberOfDoors] = useState('')
     const [engineCapacity, setEngineCapacity] = useState('')
@@ -233,6 +233,7 @@ const VehicleFormPageWrapper = () => {
                 />
                 <CustomColorField
                     label="Color"
+                    isRequired={false}
                     value={color}
                     setValue={setColor}
                 />
