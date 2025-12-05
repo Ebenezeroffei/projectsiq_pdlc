@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "PDLC | %s",
     default: "PDLC"
   },
-  description: "DriveIQ is Ghana’s trusted car dealership offering a wide selection of new and used vehicles. Shop directly from us with confidence. Your journey to owning the perfect car starts here.",
+  description: "PDLC is Ghana’s trusted car dealership offering a wide selection of new and used vehicles. Shop directly from us with confidence. Your journey to owning the perfect car starts here.",
   keywords: [],
   creator: "https://github.com/Ebenezeroffei",
   authors: [

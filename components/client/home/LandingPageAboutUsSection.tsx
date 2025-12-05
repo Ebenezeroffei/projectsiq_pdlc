@@ -11,8 +11,8 @@ const LandingPageAboutUsSection = () => {
             <div className="flex-1 w-full flex justify-center md:w-2/5 relative">
                 <Image
                     src={ImageAssets.LandingPageAboutUs}
-                    alt=""
-                    className="object-cover max-w-[400px] md:max-w-full h-full max-h-full lg:max-h-[900px] xl:max-h-[850px]"
+                    alt="Car"
+                    className="object-cover lg:max-h-[900px]"
                     unoptimized={true}
                 />
             </div>
