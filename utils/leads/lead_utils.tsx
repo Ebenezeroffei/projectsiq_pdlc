@@ -53,7 +53,7 @@ class LeadUtils {
                         preferred_payment: preferredPayment,
                     }
                     const headers = await MiscUtils.generateHeaders();
-                    api.post(Endpoints.leads.listOrCreate, data, {
+                    await api.post(Endpoints.leads.listOrCreate, data, {
                         headers,
                     })
                     setIsInterestRecorded(_ => true);
@@ -76,7 +76,7 @@ class LeadUtils {
         const hasInternet = await MiscUtils.checkNetworkStatus();
         if (hasInternet) {
             const headers = await MiscUtils.generateHeaders();
-            api.put(Endpoints.leads.markAsContacted(itemId), {}, {
+            await api.put(Endpoints.leads.markAsContacted(itemId), {}, {
                 headers,
             });
             mutate();

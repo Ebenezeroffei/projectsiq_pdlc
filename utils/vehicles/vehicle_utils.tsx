@@ -116,7 +116,7 @@ class VehicleUtils {
                         images: imagesData
                     }
                     const headers = await MiscUtils.generateHeaders();
-                    api.post(Endpoints.cars.listOrCreate, data, {
+                    await api.post(Endpoints.cars.listOrCreate, data, {
                         headers
                     });
                     toast.success("Car details saved");

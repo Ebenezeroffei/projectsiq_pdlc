@@ -18,7 +18,7 @@ class HomeUtils {
                 try {
                     setIsButtonLoading(_ => true);
                     const data = { email }
-                    api.post(Endpoints.core.subscribe, data);
+                    await api.post(Endpoints.core.subscribe, data);
                     setIsSubscribed(_ => true);
                     setEmail(_ => '')
                     setTimeout(() => setIsSubscribed(_ => false), 5000)
